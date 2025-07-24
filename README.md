@@ -35,7 +35,9 @@ the predefined files, such as welcome.dart in the front end and other folders, a
     Inside the pubspec.yaml file, you must integrate firstly the following dependencies : 
 
    ```yaml
-   -----------StartUp Dependencies------------
+   -----------SeUp Dependencies------------
+   flutter_localizations:
+    sdk: flutter
    icons_launcher: ^last version
    equatable: ^last version
    get: ^last version
@@ -52,6 +54,9 @@ the predefined files, such as welcome.dart in the front end and other folders, a
    faker: ^last version
    injectable: ^last version
    get_it: ^last version
+   get: ^last version
+   dio: ^last version
+   pretty_dio_logger: ^last version
    gadgets:
     git:
       url: https://github.com/JamesBrel/dart_gadgets.git
