@@ -1,3 +1,8 @@
 {
-"ENV":"staging"
+"ENV":"test",
+"BASE_URL":"",
+"USER_ID":"user_id",
+"USER_PASSWORD":"user_password",
+"USER_ACCESS_TOKEN":"access_token",
+"USER_REFRESH_TOKEN":"refresh_token"
 }

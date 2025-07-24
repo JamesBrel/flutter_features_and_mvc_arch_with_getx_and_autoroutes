@@ -12,7 +12,6 @@
 ---
 ## Architecture 
    the architecture of each feature is based on the MVC :
-   - Repositories
    - Controllers
    - Models
    - Views
@@ -21,7 +20,6 @@
 📦features
  ┗ 📂greeting
  ┃ ┣ 📂controllers
- ┃ ┣ 📂repositories
  ┃ ┗ 📂models
  ┃ ┗ 📂views
 ```
@@ -39,24 +37,26 @@ the predefined files, such as welcome.dart in the front end and other folders, a
    ```yaml
    -----------StartUp Dependencies------------
    icons_launcher: ^last version
-   flutter_native_splash: ^last version
    equatable: ^last version
    get: ^last version
    multiple_result: ^last version
    shorebird_code_push: ^last version
-   flutter_gen: ^last version
    flutter_svg: ^last version
-   logger: ^last version
    auto_route: ^last version
    terminate_restart: ^last version
    fluttertoast: ^last version
-   get_storage: ^last version
    internet_connection_checker_plus: ^last version
    dynamic_path_url_strategy: ^last version
    flutter_staggered_grid_view: ^last version
    flutter_speed_dial: ^last version
    faker: ^last version
-
+   injectable: ^last version
+   get_it: ^last version
+   gadgets:
+    git:
+      url: https://github.com/JamesBrel/dart_gadgets.git
+      ref: vlast version
+      path: packages/gadgets
    ----------------------------
    ```
  - <span style="color:yellow">step_1</span>: Installation of dev_dependencies

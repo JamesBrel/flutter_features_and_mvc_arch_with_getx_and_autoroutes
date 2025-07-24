@@ -12,10 +12,15 @@
 analyzer:
   errors:
     avoid_renaming_method_parameters: ignore
+    body_might_complete_normally_nullable: ignore
     constant_identifier_names: ignore
     must_be_immutable: ignore
+    non_constant_identifier_names: ignore
+    pattern_never_matches_value_type: ignore
     prefer_const_constructors_in_immutables: ignore
+    type_literal_in_constant_pattern: ignore
     unused_element: ignore
+    unused_element_parameter: ignore
 include: package:flutter_lints/flutter.yaml
 
 linter:
