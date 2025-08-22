@@ -6,8 +6,6 @@
 // import '../configs/update_instance.dart';
 
 // class DownloadNewUpdatesRequest {
-//   DownloadNewUpdatesRequest._();
-
 //   static void downloadTheUpdates() async {
 //     Fluttertoast.showToast(
 //       msg: Lang.updateIsDownloading.tr,

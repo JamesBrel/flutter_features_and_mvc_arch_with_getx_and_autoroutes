@@ -5,9 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:gadgets/gadgets.dart';
 
 import '../../tools/packages/dio/http_overrides_helper.dart';
+import 'init_binding.dart';
 
 class InitConfig {
-  static void initialize({
+  static Future<void> initialize({
     required VoidCallback onComplete,
     required ValueChanged<double>? onProgress,
   }) async {
@@ -26,7 +27,7 @@ class InitConfig {
 
       //* Phase 2: Initialisations séquentielles
       await _runSequentialTasks([
-        // _initDependencies,
+        _initDependencies,
         // _precacheCriticalAssets,
         // _loadAppConfig,
         // _setupAnalytics,
@@ -121,10 +122,10 @@ class InitConfig {
     HttpOverrides.global = new HttpOverridesHelper();
   }
 
-  // static Future<void> _initDependencies() async {
-  //   LogKit.infoLog('Injecting all dependencies...');
-  //   await dependencies();
-  // }
+  static Future<void> _initDependencies() async {
+    LogKit.infoLog('Injecting all dependencies...');
+    InitBinding().dependencies();
+  }
 
   //*--------------------------------------------------
   //* Tâches en arrière-plan

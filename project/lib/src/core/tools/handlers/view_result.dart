@@ -3,24 +3,19 @@ import 'package:flutter/material.dart';
 import '../enums/result_state_enum.dart';
 
 class SuccessModel<T> {
-  final int code;
   final T data;
-
-  SuccessModel({this.code = 200, required this.data});
+  SuccessModel({required this.data});
 
   @override
-  String toString() => '[$code] $data';
+  String toString() => '$data';
 }
 
 class FailModel {
-  final int code;
   final String message;
-  final Map<String, dynamic> data;
-
-  FailModel({this.code = 500, required this.message, this.data = const {}});
+  FailModel({required this.message});
 
   @override
-  String toString() => '[$code] $message';
+  String toString() => message;
 }
 
 class ViewResult<T> {
@@ -60,10 +55,7 @@ class ViewResult<T> {
   // Logging automatique
   void logError({String tag = 'RESULT_ERROR'}) {
     if (hasError) {
-      debugPrint('[$tag] ${failModel?.code} - ${failModel?.message}');
-      if (failModel?.data != null) {
-        debugPrint('Data: ${failModel?.data}');
-      }
+      debugPrint('[$tag] ${failModel?.message}');
     }
   }
 

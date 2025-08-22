@@ -6,8 +6,6 @@
 // import 'download_new_updates_request.dart';
 
 // class CheckNewUpdatesRequest {
-//   CheckNewUpdatesRequest._();
-
 //   static void checkTheUpdates() async {
 //     var isNewPatch = await updater.isNewPatchAvailableForDownload();
 //     if (isNewPatch) {

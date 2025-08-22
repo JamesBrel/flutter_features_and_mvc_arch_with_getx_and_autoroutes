@@ -1,5 +1,3 @@
-import 'package:injectable/injectable.dart';
-
 import '../tools/constants/envs_const.dart';
 import '../tools/packages/cache/secure_storage_request.dart';
 import '../tools/packages/cache/shared_prefs_request.dart';
@@ -13,7 +11,7 @@ import '../tools/variables/string_variable.dart';
 /// @version : 3.0.0
 /// @createdAt: 29/12/2024
 /// @updatedAt: 11/06/2025
-@singleton
+
 class AuthService {
   final SharedPrefsRequest _sharedPrefsRequest;
   final SecureStorageRequest _secureStorageRequest;

@@ -1,24 +1,21 @@
 import 'dart:async';
 
 import 'package:get/get.dart';
-import 'package:injectable/injectable.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 
-@singleton
 class ConnectivityController extends GetxController {
   final InternetConnection _internetChecker;
   ConnectivityController({required InternetConnection internetChecker})
     : _internetChecker = internetChecker;
 
-  late StreamSubscription<InternetStatus> _subscription;
+  late StreamSubscription<InternetStatus> subscription;
   var isConnected = false.obs;
 
-  @postConstruct
   @override
   void onInit() async {
     var initialStatus = await _internetChecker.internetStatus;
     updateInternetStatus(initialStatus);
-    _subscription = _internetChecker.onStatusChange.listen(
+    subscription = _internetChecker.onStatusChange.listen(
       (InternetStatus status) => updateInternetStatus(status),
     );
     super.onInit();
@@ -41,12 +38,5 @@ class ConnectivityController extends GetxController {
       isConnected.close();
     };
     return controller.stream;
-  }
-
-  @postConstruct
-  @override
-  void onClose() {
-    _subscription.cancel();
-    super.onClose();
   }
 }

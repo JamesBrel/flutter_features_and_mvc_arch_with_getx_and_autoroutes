@@ -36,9 +36,10 @@ the predefined files, such as welcome.dart in the front end and other folders, a
 
    ```yaml
    -----------SeUp Dependencies------------
-   flutter_localizations:
-    sdk: flutter
+   intl: ^last version
    icons_launcher: ^last version
+   flutter_screenutil: ^latest version
+   flutter_native_splash: ^latest version
    equatable: ^last version
    get: ^last version
    multiple_result: ^last version
@@ -47,16 +48,9 @@ the predefined files, such as welcome.dart in the front end and other folders, a
    auto_route: ^last version
    terminate_restart: ^last version
    fluttertoast: ^last version
-   internet_connection_checker_plus: ^last version
-   dynamic_path_url_strategy: ^last version
    flutter_staggered_grid_view: ^last version
    flutter_speed_dial: ^last version
    faker: ^last version
-   injectable: ^last version
-   get_it: ^last version
-   get: ^last version
-   dio: ^last version
-   pretty_dio_logger: ^last version
    gadgets:
     git:
       url: https://github.com/JamesBrel/dart_gadgets.git
@@ -68,9 +62,9 @@ the predefined files, such as welcome.dart in the front end and other folders, a
     Inside the pubspec.yaml file, you must integrate firstly the following packages :
 
    ```yaml
-   auto_route_generator: ^last version
-   build_runner: ^last version
-   flutter_gen_runner: ^last version
+   auto_route_generator: ^latest version
+   injectable_generator: ^latest version
+   build_runner: ^latest version
    ```
     these packages will allow you to easily activate the various files imported into the architecture.
     then, you just have to follow, the readme.md in the folder **assets**
@@ -82,8 +76,8 @@ the predefined files, such as welcome.dart in the front end and other folders, a
 
    - ### Cache
    ```yaml
-   get_storage: ^latest version
-   flutter_secure_storage: ^last version
+   flutter_secure_storage: ^latest version
+   shared_preferences: ^latest version
    ```
    - ### Connexion
    ```yaml
@@ -101,9 +95,14 @@ the predefined files, such as welcome.dart in the front end and other folders, a
    firebase_analytics: ^last version
    cloud_functions: ^last version
    ```
+   - ### Supabase
+   ```yaml
+   supabase_flutter: ^last version
+   ```
    - ### Http
    ```yaml
    dio: ^last version
+   pretty_dio_logger: ^last version
    ```
    - ### Image
    ```yaml
@@ -122,65 +121,11 @@ the predefined files, such as welcome.dart in the front end and other folders, a
    ```yaml
    jwt_decoder: ^last version
    ```
-   - ### assets_gen
+   - ### url
    ```yaml
-   flutter_gen: ^last version
-   flutter_gen_runner: ^last version
-   ```
-   add this following line in 
-   pubspec.yaml
-   ```yaml
-   flutter_gen:
-      # Optional
-      output: lib/src/core/configs/assets_config
-      # Optional
-      line_length: 80
-      # Optional
-      parse_metadata: true
-
-      # Optional
-      integrations:
-         flutter_svg: false
-         flare_flutter: false
-         rive: false
-         lottie: false
-
-      assets:
-         # Optional
-         enabled: true
-         # Optional
-         outputs:
-            # Optional
-            # Set to true if you want this package to be a package dependency
-            # See: https://flutter.dev/docs/development/ui/assets-and-images#from-packages
-            package_parameter_enabled: true
-            # Optional
-            Available values:
-            - camel-case
-            # - snake-case
-            # - dot-delimiter
-            style: dot-delimiter
-            class_name: Assets
-         exclude: []
-
-      fonts:
-         # Optional
-         enabled: false
-         # Optional
-         outputs:
-            class_name: FontFamily
-
-      colors:
-         # Optional
-         enabled: true
-         # Optional
-         inputs:
-            - assets/colors/color.xml
-         outputs:
-            class_name: ColorsApp
-   ```
-   after you read the doc : https://pub.dev/packages/flutter_gen
-
+   dynamic_path_url_strategy: ^last version
+   ``` 
+   `
    - ### test
    add in dev_dependencies
    ```yaml
@@ -188,6 +133,5 @@ the predefined files, such as welcome.dart in the front end and other folders, a
    integration_test:
       sdk: flutter
    ```
-
 ---
 <p style="text-align: center"> Copyright &copy; 2025 James Brel All Rights Reserved</p>      

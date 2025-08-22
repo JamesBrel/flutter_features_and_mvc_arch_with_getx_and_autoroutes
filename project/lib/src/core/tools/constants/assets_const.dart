@@ -1,6 +1,6 @@
 class Assets {
   //*--png--
-  // static const png_variable = '';
+  static const splash = 'assets/images/png/splash.png';
 
   //*--jpg--
   // static const jpg_variable = '';

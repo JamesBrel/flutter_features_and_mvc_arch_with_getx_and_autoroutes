@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/configs/inject_config/injector.dart';
-import '../../../../core/configs/lang_config/translators/translator.dart';
 import '../../../../core/configs/windows_config/responsive_layout.dart';
 import '../../../../core/tools/constants/utils_const.dart';
 import '../../controllers/hello_world_controller.dart';
@@ -15,7 +13,7 @@ part '../widgets/info_widget.dart';
 @RoutePage()
 class WelcomeScreen extends ResponsiveLayout {
   WelcomeScreen({super.key});
-  var _controller = getIt<HelloWorldController>();
+  var _controller = Get.find<HelloWorldController>();
 
   //*-- PHONE SCREEN --
   @override
@@ -30,19 +28,22 @@ class WelcomeScreen extends ResponsiveLayout {
             children: <Widget>[
               Obx(
                 () =>
-                    _controller.helloResult.value.isLoading
-                        ? const CircularProgressIndicator(color: Colors.black)
-                        : _controller.helloResult.value.isSuccess
+                    _controller.helloResult.value.isSuccess
                         ? _GreetingWidget(
-                          greeting: Translator.of(context)!.welcome(
-                            _controller.helloResult.value.successModel!.data,
-                          ),
+                          greeting: "welcome_text".trParams({
+                            'status':
+                                _controller
+                                    .helloResult
+                                    .value
+                                    .successModel!
+                                    .data,
+                          }),
                         )
                         : const SizedBox.shrink(),
               ),
               SizedBox(height: 10.0.h),
               _InfoWidget(
-                notice: Translator.of(context)!.welcomeInfo(Utils.appName),
+                notice: "welcomeInfo_text".trParams({'appName': Utils.appName}),
               ),
             ],
           ),

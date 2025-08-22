@@ -1,13 +1,11 @@
 // import 'package:file_picker/file_picker.dart';
-// import 'package:injectable/injectable.dart';
 
-// @singleton
 // class FilesPickerRequest {
 //   final FilePicker _filePicker;
 
 //   FilesPickerRequest(this._filePicker);
 
-//   Future<T> takeSingleOrMultipleFiles<T>({bool isMultipleFile = false}) async {
+//   Future<T> takeFiles<T>({bool isMultipleFile = false}) async {
 //     try {
 //       var _file = await _filePicker.pickFiles(
 //         allowMultiple: isMultipleFile,

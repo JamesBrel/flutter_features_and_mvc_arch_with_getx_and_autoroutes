@@ -1,9 +1,8 @@
 // import 'package:dio/dio.dart';
-// import 'package:injectable/injectable.dart';
 
-// @singleton
 // class HttpDioRequest {
 //   final Dio _dio;
+
 //   HttpDioRequest(this._dio);
 
 //   Future<Response<T>> post<T>({

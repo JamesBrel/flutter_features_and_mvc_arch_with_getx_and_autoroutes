@@ -1,6 +1,0 @@
-arb-dir: lib/src/core/configs/lang_config/l10n
-output-dir : lib/src/core/configs/lang_config/translators
-output-localization-file: translator.dart
-output-class: Translator
-template-arb-file: en.arb
-synthetic-package: false

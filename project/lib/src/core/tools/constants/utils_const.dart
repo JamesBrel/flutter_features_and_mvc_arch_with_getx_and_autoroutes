@@ -11,18 +11,26 @@ class Utils {
   static const appName = "App Name";
 
   //*--object constants --
-  static Size sizeInit(BuildContext context) {
+  static Size sizeInit(
+    BuildContext context, {
+    double phone_Width = 375.0,
+    double phone_Height = 812.0,
+    double tablet_Width = 768.0,
+    double tablet_Height = 1024.0,
+    double desk_Width = 1440.0,
+    double desk_Height = 900.0,
+  }) {
     var width = MediaQuery.of(context).size.width;
 
     if (width < 600) {
       // Phone Design Size
-      return const Size(375, 812);
+      return Size(phone_Width, phone_Height);
     } else if (width < 900) {
       // Tablet Design Size
-      return const Size(768, 1024);
+      return Size(tablet_Width, tablet_Height);
     } else {
       // Desktop Design Size
-      return const Size(1440, 900);
+      return Size(desk_Width, desk_Height);
     }
   }
 }
