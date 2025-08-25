@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
 class Utils {
-  //*--double constants --
+  //*-- double constants --
   // const variableName = 0.0;
 
-  //*--int constants --
+  //*-- int constants --
   // const variableName = 0;
 
-  //*--string constants --
+  //*-- string constants --
   static const appName = "App Name";
 
-  //*--object constants --
+  //*-- object constants --
   static Size sizeInit(
     BuildContext context, {
     double phone_Width = 375.0,

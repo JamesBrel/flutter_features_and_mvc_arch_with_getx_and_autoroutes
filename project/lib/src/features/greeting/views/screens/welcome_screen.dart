@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import '../../../../core/configs/windows_config/responsive_layout.dart';
+import '../../../../core/configs/lang_config/translate_keys.dart';
 import '../../../../core/tools/constants/utils_const.dart';
 import '../../controllers/hello_world_controller.dart';
 
@@ -11,13 +11,12 @@ part '../widgets/greeting_widget.dart';
 part '../widgets/info_widget.dart';
 
 @RoutePage()
-class WelcomeScreen extends ResponsiveLayout {
+class WelcomeScreen extends GetResponsiveView<HelloWorldController> {
   WelcomeScreen({super.key});
-  var _controller = Get.find<HelloWorldController>();
 
   //*-- PHONE SCREEN --
   @override
-  Widget? phone(BuildContext context) {
+  Widget? phone() {
     return Scaffold(
       body: Center(
         child: Padding(
@@ -28,22 +27,20 @@ class WelcomeScreen extends ResponsiveLayout {
             children: <Widget>[
               Obx(
                 () =>
-                    _controller.helloResult.value.isSuccess
+                    controller.helloResult.value.isSuccess
                         ? _GreetingWidget(
-                          greeting: "welcome_text".trParams({
+                          greeting: TranslateKeys.welcome.trParams({
                             'status':
-                                _controller
-                                    .helloResult
-                                    .value
-                                    .successModel!
-                                    .data,
+                                controller.helloResult.value.successModel!.data,
                           }),
                         )
                         : const SizedBox.shrink(),
               ),
               SizedBox(height: 10.0.h),
               _InfoWidget(
-                notice: "welcomeInfo_text".trParams({'appName': Utils.appName}),
+                notice: TranslateKeys.welcomeInfo.trParams({
+                  'appName': Utils.appName,
+                }),
               ),
             ],
           ),
@@ -54,22 +51,22 @@ class WelcomeScreen extends ResponsiveLayout {
 
   //*-- TABLET SCREEN --
   // @override
-  // Widget? tablet(BuildContext context) {
-  //   TODO: implement tablet
-  //   return super.tablet(context);
+  // Widget? tablet() {
+  //   // TODO: implement tablet
+  //   return super.tablet();
   // }
 
   //*-- DESKTOP SCREEN --
   // @override
-  // Widget? desktop(BuildContext context) {
-  // TODO: implement desktop
-  //   return super.desktop(context);
+  // Widget? desktop() {
+  //   // TODO: implement desktop
+  //   return super.desktop();
   // }
 
   //*-- WATCH SCREEN --
   // @override
-  // Widget? watch(BuildContext context) {
-  // TODO: implement watch
-  //   return super.watch(context);
+  // Widget? watch() {
+  //   // TODO: implement watch
+  //   return super.watch();
   // }
 }
