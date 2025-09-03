@@ -48,8 +48,7 @@ the predefined files, such as welcome.dart in the front end and other folders, a
    auto_route: ^last version
    terminate_restart: ^last version
    fluttertoast: ^last version
-   flutter_staggered_grid_view: ^last version
-   flutter_speed_dial: ^last version
+   toastification: ^last version
    faker: ^last version
    gadgets:
     git:
@@ -63,7 +62,6 @@ the predefined files, such as welcome.dart in the front end and other folders, a
 
    ```yaml
    auto_route_generator: ^latest version
-   injectable_generator: ^latest version
    build_runner: ^latest version
    ```
     these packages will allow you to easily activate the various files imported into the architecture.
@@ -108,7 +106,6 @@ the predefined files, such as welcome.dart in the front end and other folders, a
    ```yaml
    file_picker: ^latest version
    image_picker: ^last version
-   flutter_native_image: ^last version
    image_cropper: ^last version
    ```
    - ### Isar

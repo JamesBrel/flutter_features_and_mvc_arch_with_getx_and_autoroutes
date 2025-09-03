@@ -6,14 +6,15 @@ import 'package:get/get.dart';
 
 import 'src/core/configs/initial_config/init_config.dart';
 import 'src/core/configs/lang_config/translator.dart';
+import 'src/core/shared/constants/utils_const.dart';
 import 'src/core/themes/theme_app.dart';
-import 'src/core/tools/constants/utils_const.dart';
 import 'src/routes/app_router.dart';
 
 void main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   await ScreenUtil.ensureScreenSize();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
   await InitConfig.initialize(
     onComplete: () {
       runApp(MyApp());

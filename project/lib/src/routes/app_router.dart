@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../features/greeting/views/screens/welcome_screen.dart';
+import '../features/hello_world/views/screens/welcome_screen.dart';
 import 'routes.dart';
 
 part "app_router.gr.dart";

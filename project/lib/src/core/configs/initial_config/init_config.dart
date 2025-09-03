@@ -4,7 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:gadgets/gadgets.dart';
 
-import '../../tools/packages/dio/http_overrides_helper.dart';
+import '../../services/dio/http_overrides_helper.dart';
+import '../../shared/helpers/assets_helper.dart';
 import 'init_binding.dart';
 
 class InitConfig {
@@ -13,13 +14,15 @@ class InitConfig {
     required ValueChanged<double>? onProgress,
   }) async {
     var stopwatch = Stopwatch()..start();
+    //* Phase 0: Initialisation PRIORITAIRE des dépendances
+    await _runPriorityTasks([
+      _initDependencies, // Doit être fait en premier
+    ], onProgress: onProgress);
 
     try {
       //* Phase 1: Initialisations critiques parallèles
       await _runParallelTasks([
-        // _initSupabase,
-        // _initFirebase,
-        // _initHive,
+        // _initDependencies,
         // _initRestartApp,
         // _initWindows,
         _initOrientation,
@@ -27,7 +30,7 @@ class InitConfig {
 
       //* Phase 2: Initialisations séquentielles
       await _runSequentialTasks([
-        _initDependencies,
+        _initCatchAssets,
         // _precacheCriticalAssets,
         // _loadAppConfig,
         // _setupAnalytics,
@@ -94,11 +97,14 @@ class InitConfig {
     ]);
   }
 
+  static Future<void> _initCatchAssets() async {
+    LogKit.infoLog('create the catch of assets...');
+    await AssetsHelper.init();
+  }
+
   // static Future<void> _precacheCriticalAssets() async {
-  //   LogKit.infoLog('Precaching assets...');
-  //   await AssetsHelper.init();
-  //   await AssetsHelper.preCacheFontsAssets();
-  //   await AssetsHelper.preCacheImagesAssets();
+  //   LogKit.infoLog('Precaching images assets...');
+  //   await AssetsHelper.preCacheImages();
   // }
 
   // static Future<void> _loadAppConfig() async {
@@ -149,10 +155,10 @@ class InitConfig {
   //   // }
   // }
 
-  // static Future<void> _precacheSecondaryAssets() async {
-  //   _logger.i('Precaching secondary assets...');
-  //   // Assets non-critiques
-  // }
+  static Future<void> _precacheSecondaryAssets() async {
+    LogKit.infoLog('Precaching fonts assets...');
+    await AssetsHelper.preCacheFonts();
+  }
 
   //*--------------------------------------------------
   //* Utilitaires d'exécution
@@ -178,6 +184,25 @@ class InitConfig {
         }
       }),
     );
+  }
+
+  static Future<void> _runPriorityTasks(
+    List<AsyncCallback> tasks, {
+    ValueChanged<double>? onProgress,
+  }) async {
+    var total = tasks.length;
+    var completed = 0;
+
+    for (var task in tasks) {
+      try {
+        await task();
+        completed++;
+        onProgress?.call(completed / total * 0.2); // 20% pour cette phase
+      } catch (e) {
+        LogKit.errorLog('Priority task failed: $e');
+        rethrow;
+      }
+    }
   }
 
   static Future<void> _runSequentialTasks(
