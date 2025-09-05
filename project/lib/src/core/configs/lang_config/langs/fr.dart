@@ -11,7 +11,12 @@ Map<String, String> french = {
   "noImageTake": "Erreur durant la prise d'image, Veuillez réessayer !",
   "deviceError": "Erreur au niveau de votre appareil",
   "unknownError": "Erreur inconnue",
-  "updateAvailable": "Une nouvelle mise à jour sera téléchargée",
+  "updateAvailable": "Mise à jour disponible",
+  "updateAvailableInfo":
+      "@AppName vient d'avoir une nouvelle version. Veuillez la mettre à jour pour profiter des dernières fonctionnalités et améliorations.",
+  "updateIt": "Mettre à jour",
   "updateIsDownloading": "Téléchargement....",
-  "restartApp": "Redémarrage en cours de l'application",
+  "appRestart": "Redémarrage de l'application",
+  "appRestartInfo":
+      "L'application @AppName va redémarrer pour appliquer les changements.",
 };

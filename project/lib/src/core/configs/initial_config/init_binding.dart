@@ -105,7 +105,11 @@ class InitBinding extends Bindings {
     // Get.put<JwtService>(JwtService());
     // Get.put<HttpDioService>(HttpDioService(Get.find<Dio>()));
     // Get.put<UpdateService>(
-    //   UpdateService(Get.find<ShorebirdUpdater>(), Get.find<TerminateRestart>()),
+    //   UpdateService(
+    //Get.find<ShorebirdUpdater>(),
+    //Get.find<TerminateRestart>(),
+    //Get.find<AppRouter>(),
+    //),
     // );
 
     //! -- CONTROLLERS

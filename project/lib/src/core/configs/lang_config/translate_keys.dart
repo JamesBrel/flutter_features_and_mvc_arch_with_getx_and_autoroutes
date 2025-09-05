@@ -13,4 +13,9 @@ class TranslateKeys {
   static const updateAvailable = "updateAvailable";
   static const updateIsDownloading = "updateIsDownloading";
   static const restartApp = "restartApp";
+  static const updateAvailableInfo = "updateAvailableInfo";
+  static const updateIt = "updateIt";
+  static const appRestart = "appRestart";
+
+  static const appRestartInfo = "appRestartInfo";
 }
